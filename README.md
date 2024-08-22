@@ -18,6 +18,13 @@ mv .env.example .env
 
 ### Fill .env
 
+### Redis Fix
+
+```shell
+echo "vm.overcommit_memory = 1" | sudo tee /etc/sysctl.d/nextcloud-aio-memory-overcommit.conf
+sudo sysctl "vm.overcommit_memory=1"
+```
+
 ---
 
 ## 📦 DOCKER
