@@ -1,6 +1,5 @@
 services:
   src:
-    container_name: src
     restart: always
     networks:
       - network
@@ -10,7 +9,6 @@ services:
       - database
 
   storage:
-    container_name: storage
     restart: always
     networks:
       - network
@@ -19,7 +17,6 @@ services:
       - ./data/storage:/data
 
   database:
-    container_name: database
     restart: always
     networks:
       - network
@@ -33,7 +30,6 @@ services:
       - ./data/database:/var/lib/postgresql/data
 
   adminer:
-    container_name: adminer
     restart: always
     networks:
       - network
@@ -41,9 +37,8 @@ services:
     depends_on:
       - database
     ports:
-      - 8080:8080
+      - 127.0.0.1:${ADMINER_PORT}:8080
 
 networks:
   network:
-    name: network
     driver: bridge
