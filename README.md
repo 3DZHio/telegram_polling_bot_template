@@ -5,9 +5,7 @@
 ## 🔗 REPOSITORY
 
 ```shell
-git clone https://github.com/3DZHio/telegram_polling_bot_template.git
-cd telegram_polling_bot_template
-mv .env.example .env
+git clone "https://github.com/3DZHio/telegram_polling_bot_template.git"
 ```
 
 ---
@@ -16,13 +14,29 @@ mv .env.example .env
 
 ### [Install Docker](https://www.docker.com/)
 
-### Fill .env
+> [!IMPORTANT]
+> Perform Actions in Project Folder
+> ```shell
+> cd <PROJECT_FOLDER>
+> ```
 
-### Redis Fix
+### ReName `.env.example` to `.env`
 
 ```shell
-echo "vm.overcommit_memory = 1" | sudo tee /etc/sysctl.d/nextcloud-aio-memory-overcommit.conf
-sudo sysctl "vm.overcommit_memory=1"
+mv .env.example .env
+```
+
+### Configure `.env`
+
+```shell
+vi .env || nano .env
+```
+
+### PreRequisites
+
+```shell
+chmod +x prerequisites.sh
+./prerequisites.sh
 ```
 
 ---
@@ -41,10 +55,11 @@ make build up
 make down
 ```
 
-### 📌 MakeFile Info
+> [!TIP]
+> 📌 MakeFile Info
+> ```shell
+> cat Makefile
+> ```
 
-```shell
-cat Makefile
-```
 
 ---
