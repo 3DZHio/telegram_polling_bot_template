@@ -1,19 +1,6 @@
 from aiogram import Bot
 from aiogram.exceptions import TelegramBadRequest
 from aiogram.fsm.context import FSMContext
-from aiogram.types import BotCommandScopeAllPrivateChats, BotCommand
-
-from src.bot.texts import outer
-
-
-async def set_commands(bot: Bot) -> None:
-	await bot.set_my_commands(
-		commands=[
-			BotCommand(command=command, description=description)
-			for command, description in outer.bot_commands.items()
-		],
-		scope=BotCommandScopeAllPrivateChats(),
-	)
 
 
 async def delete_message_data(

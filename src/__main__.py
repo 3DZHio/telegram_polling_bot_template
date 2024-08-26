@@ -7,13 +7,11 @@ from aiogram.fsm.storage.redis import RedisStorage
 from redis.asyncio import Redis
 
 from src.bot.handlers import get_routers
-from src.bot.utils.extension import set_commands
 from src.config import settings
 from src.log import setup_logger
 
 
 async def on_startup(bot: Bot) -> None:
-	await set_commands(bot)
 	await bot.delete_webhook(drop_pending_updates=True if settings.DROP == 1 else None)
 
 
