@@ -8,7 +8,7 @@ from redis.asyncio import Redis
 
 from src.bot.handlers import get_routers
 from src.config import settings
-from src.log import setup_logger
+from src.logs import setup_logger
 
 
 async def on_startup(bot: Bot) -> None:
