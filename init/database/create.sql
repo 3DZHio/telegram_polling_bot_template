@@ -1,3 +1,4 @@
+-- USERS --
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     uid BIGINT NOT NULL
