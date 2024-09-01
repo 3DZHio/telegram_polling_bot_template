@@ -19,6 +19,6 @@ async def admin(message: Message) -> None:
 async def start(message: Message) -> None:
     uid = message.from_user.id
     await message.delete()
-    if not (await users.exists(uid)):
+    if not await users.exists(uid):
         await users.add(uid)
     await message.answer(text=outer.msg_start)
