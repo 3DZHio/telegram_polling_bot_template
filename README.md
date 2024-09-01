@@ -26,6 +26,8 @@ git clone "https://github.com/3DZHio/telegram_polling_bot_template.git"
 vi .env || nano .env
 ```
 
+### Create Private Repository
+
 ### PreRequisites
 
 ```shell
