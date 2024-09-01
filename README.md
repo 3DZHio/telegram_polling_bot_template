@@ -20,12 +20,6 @@ git clone "https://github.com/3DZHio/telegram_polling_bot_template.git"
 > cd <PROJECT_FOLDER>
 > ```
 
-### ReName `.env.example` to `.env`
-
-```shell
-mv .env.example .env
-```
-
 ### Configure `.env`
 
 ```shell
@@ -60,6 +54,5 @@ make down
 > ```shell
 > cat Makefile
 > ```
-
 
 ---

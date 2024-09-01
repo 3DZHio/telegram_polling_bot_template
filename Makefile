@@ -10,15 +10,15 @@ ps:
 	$(S) $(D) ps --all
 
 rm:
-	$(E) USAGE: make rm id=
-	$(S) $(D) rm --force $(id)
+	$(E) USAGE: make rm rm=
+	$(S) $(D) rm --force $(rm)
 
 images:
 	$(S) $(D) images --all
 
 rmi:
-	$(E) USAGE: make rmi id=
-	$(S) $(D) rmi --force $(id)
+	$(E) USAGE: make rmi rmi=
+	$(S) $(D) rmi --force $(rmi)
 
 
 ## DOCKER SYSTEM ##
@@ -31,19 +31,11 @@ build:
 	$(S) $(DC) build
 
 up:
-	$(S) $(DC) up --remove-orphans
-
-upd:
 	$(S) $(DC) up --detach --remove-orphans
 
 down:
 	$(S) $(DC) down
 
 logs:
-	$(S) $(DC) logs --follow
-
-
-## EXTENSION ##
-rebuild: down build
-
-reup: down up
+	$(E) USAGE: make logs logs=
+	$(S) $(DC) logs --follow $(logs)
