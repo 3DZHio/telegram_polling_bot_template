@@ -51,18 +51,18 @@ class DataBase:
 		return f"INSERT INTO {table} ({columns}) VALUES ({values});"
 	
 	@staticmethod
-	def update(table: str, column: str, conditions: str) -> str:
+	def update(table: str, column: str, value: str = "$1", conditions: str = "TRUE") -> str:
 		"""UPDATE"""
-		return f"UPDATE {table} SET {column} = $1 WHERE {conditions};"
+		return f"UPDATE {table} SET {column} = {value} WHERE {conditions};"
 	
 	@staticmethod
-	def multiple_update(table: str, columns: str, conditions: str) -> str:
+	def multiple_update(table: str, columns: str, conditions: str = "TRUE") -> str:
 		"""MULTIPLE UPDATE"""
 		columns_values = ",".join(f"{column}=${i}" for i, column in enumerate(columns.split(","), start=1))
 		return f"UPDATE {table} SET {columns_values} WHERE {conditions};"
 	
 	@staticmethod
-	def delete(table: str, conditions: str) -> str:
+	def delete(table: str, conditions: str = "TRUE") -> str:
 		"""DELETE"""
 		return f"DELETE FROM {table} WHERE {conditions};"
 
