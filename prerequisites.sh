@@ -14,4 +14,5 @@ fi
 
 
 ## GitIgnore ##
+sed -i "s/^data/##data/" .gitignore
 sed -i "s/^.env/##.env/" .gitignore
