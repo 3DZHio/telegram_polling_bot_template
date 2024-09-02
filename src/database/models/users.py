@@ -1,13 +1,9 @@
 from src.database.core import db
 
-async def exists(uid: int) -> bool:
-    """Check for Existence"""
-    return bool(await db.fetchone(db.select("1", "users", "uid = $1"), uid))
-
 
 async def add(uid: int) -> None:
     """Add"""
-    await db.execute(db.insert("users", "uid"), uid)
+    await db.execute(db.insert("users", "uid", "ON CONFLICT (uid) DO NOTHING"), uid)
 
 
 async def info(uid: int) -> dict:

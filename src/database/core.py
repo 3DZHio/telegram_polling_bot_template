@@ -45,10 +45,10 @@ class DataBase:
 		return f"SELECT {columns} FROM {table} WHERE {conditions} OFFSET {offset} LIMIT {limit};"
 	
 	@staticmethod
-	def insert(table: str, columns: str) -> str:
+	def insert(table: str, columns: str, extra: str = "") -> str:
 		"""INSERT"""
 		values = ",".join(f"${i}" for i in range(1, len(columns.split(",")) + 1))
-		return f"INSERT INTO {table} ({columns}) VALUES ({values});"
+		return f"INSERT INTO {table} ({columns}) VALUES ({values}) {extra};"
 	
 	@staticmethod
 	def update(table: str, column: str, value: str = "$1", conditions: str = "TRUE") -> str:
