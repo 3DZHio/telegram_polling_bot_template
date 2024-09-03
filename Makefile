@@ -1,7 +1,7 @@
+## VARIABLES ##
 S=sudo
 E=@echo
 D=docker
-DS=docker system
 DC=docker compose
 
 
@@ -20,10 +20,8 @@ rmi:
 	$(E) USAGE: make rmi rmi=
 	$(S) $(D) rmi --force $(rmi)
 
-
-## DOCKER SYSTEM ##
 prune:
-	$(S) $(DS) prune --volumes --force
+	$(S) $(D) system prune --volumes --force
 
 
 ## DOCKER COMPOSE ##

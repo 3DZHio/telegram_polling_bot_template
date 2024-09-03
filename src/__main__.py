@@ -14,7 +14,7 @@ from src.database.core import db
 
 async def on_startup(bot: Bot) -> None:
 	await db.connect()
-	await bot.delete_webhook(drop_pending_updates=True if settings.DROP == 1 else None)
+	await bot.delete_webhook(drop_pending_updates=settings.pending_updates)
 
 
 async def on_shutdown() -> None:

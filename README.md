@@ -10,23 +10,21 @@ git clone "https://github.com/3DZHio/telegram_polling_bot_template.git"
 
 ---
 
-## ⚙️ DEPENDENCIES
-
-### [Install Docker](https://www.docker.com/)
-
 > [!IMPORTANT]
 > Perform Actions in Project Folder
 > ```shell
 > cd <PROJECT_FOLDER>
 > ```
 
-### Configure `.env`
+## ⚙️ DEPENDENCIES
+
+### [Install Docker](https://www.docker.com/)
+
+### Configure `.env.example`
 
 ```shell
-vi .env || nano .env
+vi .env.example || nano .env.example
 ```
-
-### Create Private Repository
 
 ### PreRequisites
 

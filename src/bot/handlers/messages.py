@@ -8,7 +8,7 @@ from src.database.models import users
 
 
 ## MAIN ##
-# START
+# START #
 @routers.msg.message(CommandStart())
 async def start(message: Message) -> None:
     await message.delete()
