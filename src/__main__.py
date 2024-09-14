@@ -1,3 +1,5 @@
+import logging
+import sys
 from asyncio import run
 
 from aiogram import Bot, Dispatcher
@@ -7,7 +9,6 @@ from aiogram.fsm.storage.redis import RedisStorage
 from redis.asyncio import Redis
 
 from src.bot.handlers import get_routers
-from src.logs import setup_logger
 from src.config import settings
 from src.database.core import db
 
@@ -22,7 +23,8 @@ async def on_shutdown() -> None:
 	
 	
 def main() -> None:
-	setup_logger(level=settings.LOG_LEVEL)
+	logging.basicConfig(stream=sys.stdout, level=settings.LOG_LEVEL,
+	                    format="%(asctime)s | %(name)s | %(levelname)s | %(message)s")
 	bot = Bot(
 		token=settings.BOT_TOKEN.get_secret_value(),
 		default=DefaultBotProperties(parse_mode=ParseMode.HTML),
