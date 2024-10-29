@@ -6,33 +6,33 @@ from pydantic_settings import BaseSettings
 class Settings(BaseSettings, case_sensitive=True):
 	load_dotenv()
 	
-	## MAIN ##
-	# Pending Updates #
+	### MAIN ###
+	## Pending Updates ##
 	PENDING_UPDATES: int
 	
-	# Logging #
+	## Logging ##
 	LOG_LEVEL: int
 	
-	# Admin #
+	## Admin ##
 	ADMIN_IDS: SecretStr
 	
-	## PREREQUISITES ##
-	# Bot #
+	### PREREQUISITES ###
+	## Bot ##
 	BOT_TOKEN: SecretStr
 	
-	# Storage #
+	## Storage ##
 	STG_HOST: SecretStr
 	STG_PORT: SecretStr
 	STG_NAME: SecretStr
 	
-	# DataBase #
+	## DataBase ##
 	DB_USER: SecretStr
 	DB_PASSWORD: SecretStr
 	DB_HOST: SecretStr
 	DB_PORT: SecretStr
 	DB_NAME: SecretStr
 	
-	## PROPERTIES ##
+	### PROPERTIES ###
 	@property
 	def pending_updates(self) -> bool | None:
 		return True if settings.PENDING_UPDATES == 1 else None

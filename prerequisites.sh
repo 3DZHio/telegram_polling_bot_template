@@ -1,11 +1,11 @@
 #!/bin/bash
 
 
-## START ##
+### START ###
 echo "| START |"
 
 
-## ENV ##
+### ENV ###
 if [ -f .env.example ]; then
     ## ReName .env.example To .env ##
     mv .env.example .env
@@ -20,21 +20,21 @@ else
 fi
 
 
-## GitIgnore ##
+### GitIgnore ###
 if [ "${SAVE_ENV}" == "1" ]; then
     sed -i "s/^.env$/##.env/" .gitignore
 fi
 
 
-## Redis Memory OverCommit ##
+### Redis Memory OverCommit ###
 if [ "$(sudo cat /proc/sys/vm/overcommit_memory)" != "1" ]; then
     echo 1 | sudo tee /proc/sys/vm/overcommit_memory
 fi
 
 
-## Install Requirements ##
+### Install Requirements ###
 pip install -r requirements.txt
 
 
-## SUCCESS ##
+### SUCCESS ###
 echo "| SUCCESS |"
