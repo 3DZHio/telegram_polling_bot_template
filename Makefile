@@ -1,11 +1,30 @@
-### VARIABLES ###
+### VARIABLE ###
+## MAIN ##
 S=sudo
 E=@echo
+
+## DOCKER ##
 D=docker
+
+## DOCKER COMPOSE ##
 DC=docker compose
 
 
-### DOCKER ###
+
+### ACTION ###
+## MAIN ##
+prerequisites:
+	chmod +x prerequisites.sh
+	./prerequisites.sh
+
+
+## PYTHON ## 
+venv_requirements:
+	python3 -m venv venv
+	bash -c "source venv/bin/activate && pip install -r requirements.txt"
+
+
+## DOCKER ##
 ps:
 	$(S) $(D) ps --all
 
@@ -28,7 +47,7 @@ exec:
 	$(S) $(D) exec -it $(exec)
 
 
-### DOCKER COMPOSE ###
+## DOCKER COMPOSE ##
 build:
 	$(S) $(DC) build
 

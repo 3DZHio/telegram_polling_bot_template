@@ -20,21 +20,16 @@ else
 fi
 
 
-### GitIgnore ###
+### GIT IGNORE ###
 if [ "${SAVE_ENV}" == "1" ]; then
     sed -i "s/^.env$/##.env/" .gitignore
 fi
 
 
-### Redis Memory OverCommit ###
+### REDIS MEMORY OVERCOMMIT ###
 if [ "$(sudo cat /proc/sys/vm/overcommit_memory)" != "1" ]; then
     echo 1 | sudo tee /proc/sys/vm/overcommit_memory
 fi
-
-
-### Install Requirements ###
-pip install -r requirements.txt
-
 
 ### SUCCESS ###
 echo "| SUCCESS |"
